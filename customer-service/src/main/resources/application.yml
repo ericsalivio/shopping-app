@@ -1,0 +1,52 @@
+## My SQL Database Config
+spring:
+  data:
+    rest:
+      base-path: /api/v1
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gofluent?createDatabaseIfNotExist=true&useSSL=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+          ddl-auto: update
+    properties:
+      hibernate:
+        generate_statistics: false
+        show_sql: false
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        globally_quoted_identifiers: true
+  application:
+     name: CUSTOMER-SERVICE
+logging:
+  level:
+    ROOT: DEBUG
+  file:
+    name: D:/logs/microservice.log
+#    pattern:
+#      console: "%d %-5level %logger : %msg%n"
+#      file: "%d %-5level [%thread] %logger : %msg%n"
+#    level:
+#      org.springframework.web: ERROR
+#      com.go.fluent.service.service.impl: INFO
+#      org.hibernate: ERROR
+
+
+
+
+
+
+
+server:
+  port : 8090
+
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    serviceUrl:
+#      defaultZone: http://locahost:9090/eureka/
+#  instance:
+#    hostname: localhost
