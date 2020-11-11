@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div *ngIf="customerItems.length > 0">
+                    <table class="table table-bordered">
+                        <thead class="bg-dark text-light ">
+                            <tr>
+                                <td width="20%">Item Image</td>
+                                <td width="50%">Item Description</td>
+                                <td width="30%"></td>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let item of customerItems">
+                                    <td>
+                                        <img src="https://placehold.it/150x200" class="img-responsive">
+                                    </td>
+                                    <td> {{600 | currency: 'PHP'}}</td>
+                                    <td></td>
+                                </tr> -->
+                            <tr *ngFor="let item of customerItems">
+                                <td>
+                                    <img [src]="item.imageUrl" class="img-responsive" width="150" height="200">
+                                </td>
+                                <td>
+                                    <p>{{item.name}}</p>
+                                    <p>{{item.description}}</p>
+                                    <p>{{item.price | currency: 'PHP'}}</p>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>Quantity:<span (click)="remove(item)"  class="float-right text-danger"> <i
+                                                        class="fas fa-trash-alt"></i></span></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button (click)="incrementQuantity(item)" class="btn btn-primary btn-sm float-left">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            {{item.quantity}}
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button (click)="decreQuantity(item)" class="btn btn-primary btn-sm float-right">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-12" mt-2>
+                                            <p>Subtotal:{{ item.quantity * item.price | currency:'PHP'}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td class="font-weight-bold">
+                                    <p>Total Quantity: {{totalQuantity}}</p>
+                                    <p>Total Price: {{totalPrice | currency: 'PHP'}}</p>
+                                <button (click)="saveBasket(customerItems)"  class="btn btn-primary btn-md">Submit Basket</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="customerItems.length == 0" class="alert aler-warning" role="alert">
+
+                    Your cart is empty
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

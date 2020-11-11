@@ -1,0 +1,23 @@
+<div *ngFor="let product of products; let i = index" class="table">
+    <div>
+        <h4>{{product.name}} </h4>
+        <span> {{product.description}}</span>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Item Name</th>
+                <th>Price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of product.items">
+                <td><img [src]="item.imageUrl" height="50"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price | currency: 'INR'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

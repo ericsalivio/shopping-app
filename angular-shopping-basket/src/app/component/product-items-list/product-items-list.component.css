@@ -1,0 +1,13 @@
+.card-text{
+    font-size:16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+}
+.item-header{
+    height: 80px;
+}
+.card{
+    margin-top: 50px;
+}

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+      gateway:
+        globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "http://localhost:4200"
+              allowedHeaders:
+                - content-type
+              allowedMethods:
+                - GET
+                - POST
+        routes:
+          - id: customer-service
+            uri: lb://CUSTOMER-SERVICE
+            predicates:
+              - Path=/customer/**
+          - id: product-service
+            uri: lb://PRODUCT-SERVICE
+            predicates:
+              - Path=/product-item/**
+
+server:
+  port: 8989
